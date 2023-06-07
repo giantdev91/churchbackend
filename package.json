@@ -1,0 +1,92 @@
+{
+	"name": "@church/backend",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"clean": "rimraf dist",
+		"build": "yarn clean && babel ./src --out-dir ./dist --copy-files",
+		"start": "nodemon --exec babel-node ./dist/bin/www.js",
+		"backend": "node ./scripts/start.mjs",
+		"docs": "jsdoc -c jsdoc.json -r src && http-server -p 3001 out",
+		"lint": "eslint --cache --fix src --cache-location .eslintcache",
+		"prettier": "prettier --write src"
+	},
+	"dependencies": {
+		"@babel/cli": "^7.10.1",
+		"@babel/core": "^7.10.2",
+		"@babel/node": "^7.10.1",
+		"@babel/plugin-transform-runtime": "^7.10.1",
+		"@babel/preset-env": "^7.10.2",
+		"aws-sdk": "^2.819.0",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"base64-img": "^1.0.4",
+		"bcryptjs": "^2.4.3",
+		"better-docs": "^2.3.2",
+		"camelcase-keys": "^6.2.2",
+		"chai": "^4.2.0",
+		"cookie-parser": "~1.4.4",
+		"cors": "^2.8.5",
+		"crypto": "^1.0.1",
+		"debug": "~2.6.9",
+		"dotenv": "^8.2.0",
+		"email-validator": "^2.0.4",
+		"eslint": "^8.29.0",
+		"eslint-config-airbnb": "^18.2.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-import-resolver-alias": "^1.1.2",
+		"eslint-plugin-chai-friendly": "^0.6.0",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"express": "^5.0.0-alpha.8",
+		"express-jwt": "^8.4.0",
+		"ffmpeg-static": "^5.1.0",
+		"ffmpeg-stream": "^0.7.0",
+		"ffprobe-static": "^3.0.0",
+		"firebase-admin": "^8.13.0",
+		"fluent-ffmpeg": "^2.1.2",
+		"google-libphonenumber": "^3.2.10",
+		"http-errors": "~1.6.3",
+		"http-server": "^0.12.3",
+		"husky": ">=4",
+		"jsdoc": "^3.6.5",
+		"jsdoc-http-plugin": "^0.3.2",
+		"jsonwebtoken": "^8.5.1",
+		"lint-staged": ">=10",
+		"module-alias": "^2.2.2",
+		"morgan": "~1.9.1",
+		"multer": "^1.4.2",
+		"nanoid": "^3.1.20",
+		"nodemailer": "^6.4.10",
+		"nodemon": "^2.0.7",
+		"parse-ms": "^2.1.0",
+		"pg": "^8.2.1",
+		"pify": "^5.0.0",
+		"pkg-dir": "^5.0.0",
+		"prettier": "^2.1.1",
+		"pug": "2.0.0-beta11",
+		"rimraf": "^3.0.2",
+		"sharp": "^0.31.3",
+		"shortid": "^2.2.15",
+		"simple-thumbnail": "^1.6.5",
+		"string-argv": "^0.3.1",
+		"stripe": "^8.135.0",
+		"tmp": "^0.2.1",
+		"util": "^0.12.3"
+	},
+	"_moduleAliases": {
+		"~": "./src"
+	},
+	"lint-staged": {
+		"*.{js,ts,vue}": "eslint --cache --fix src --cache-location .eslintcache",
+		"*.{js,css,md}": "prettier --write"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"devDependencies": {
+		"execa": "^6.1.0",
+		"wait-port": "^1.0.4"
+	}
+}
